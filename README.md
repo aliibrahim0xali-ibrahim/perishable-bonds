@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/banner.jpg" alt="Perishable Bonds" width="100%" />
+</p>
+
 # Perishable Bonds
 
 [![test](https://github.com/OWNER/perishable-bonds/actions/workflows/test.yml/badge.svg)](../../actions/workflows/test.yml)
