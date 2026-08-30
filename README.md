@@ -4,9 +4,13 @@
 
 # Perishable Bonds
 
-[![test](https://github.com/OWNER/perishable-bonds/actions/workflows/test.yml/badge.svg)](../../actions/workflows/test.yml)
+[![test](https://github.com/aliibrahim0xali-ibrahim/perishable-bonds/actions/workflows/test.yml/badge.svg)](https://github.com/aliibrahim0xali-ibrahim/perishable-bonds/actions/workflows/test.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Solidity ^0.8.24](https://img.shields.io/badge/solidity-%5E0.8.24-lightgrey)](foundry.toml)
+[![contributors](https://img.shields.io/github/contributors/aliibrahim0xali-ibrahim/perishable-bonds)](https://github.com/aliibrahim0xali-ibrahim/perishable-bonds/graphs/contributors)
+[![issues](https://img.shields.io/github/issues/aliibrahim0xali-ibrahim/perishable-bonds)](https://github.com/aliibrahim0xali-ibrahim/perishable-bonds/issues)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![code of conduct](https://img.shields.io/badge/Code%20of%20Conduct-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
 **Tokenized supply-chain financing for goods that spoil.** This is a set of
 Ethereum smart contracts that turn a single cold-chain shipment — insulin,
@@ -336,18 +340,20 @@ struct BondSnapshot {
 }
 ```
 
-Guide for a dashboard:
+Guide for a dashboard (pseudo-code — exact syntax depends on your stack):
 
-```solidity
-PerishableBond.BondSnapshot memory s = bond.getSnapshot(user);
+```js
+const s = bond.getSnapshot(user);
 
 // color the card
-if (s.status == Status.Active) {
-    string health = s.isBreaching
-        ? "breaching"
-        : (s.navBps < 4000 ? "low" : "healthy");
+if (s.status !== "Active") {
+  // s.callerClaimableEstimate is the pull amount if user has tokens
+} else if (s.isBreaching) {
+  // "breaching" — something is wrong right now
+} else if (s.navBps < 4000) {
+  // "low" — close to the liquidation threshold
 } else {
-    // s.callerClaimableEstimate is the pull amount if user has tokens
+  // "healthy"
 }
 ```
 
@@ -395,7 +401,7 @@ Requirements: [Foundry](https://getfoundry.sh) (includes `forge`, `cast`,
 `anvil`).
 
 ```bash
-git clone https://github.com/OWNER/perishable-bonds.git
+git clone https://github.com/aliibrahim0xali-ibrahim/perishable-bonds.git
 cd perishable-bonds
 
 # install pinned dependencies into lib/
@@ -524,14 +530,18 @@ the maintainers — do **not** open a public issue. See SECURITY.md for details.
 
 ## Contributing
 
-Issues and PRs are welcome. If you fix a bug, please also add a regression
-test that would fail on the old code — every security fix in this repo carries
-one, and the invariant suite is the first place new state transitions should
-be probed.
+Open source, PRs welcome. Whether it's the decay math, a regression test, a
+new invariant, or better docs — contributions are appreciated and governed by
+our [Code of Conduct](CODE_OF_CONDUCT.md).
 
-```bash
-forge fmt && forge test      # must pass before submitting
-```
+**Start here:** read [`CONTRIBUTING.md`](CONTRIBUTING.md) for setup, coding
+conventions, the PR checklist, and where to look for first issues.
+
+- Report bugs via the [bug template](../../issues/new?template=bug_report.yml)
+  or a pull request with a regression test that fails on `main`.
+- Suggest features via the [feature template](../../issues/new?template=feature_request.yml).
+- **Security issues only via the private [security advisory](../../security/advisories/new) — never as a public issue.** See [SECURITY.md](SECURITY.md).
+- Run `forge fmt && forge test` before submitting; CI runs fmt, build, tests, and coverage on every PR.
 
 ---
 

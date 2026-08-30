@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/aliibrahim0xali-ibrahim/perishable-bonds/security/advisories/new
+    about: Report a vulnerability privately. Do NOT open a public issue.

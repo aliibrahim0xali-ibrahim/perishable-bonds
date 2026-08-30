@@ -1,0 +1,64 @@
+name: Bug report
+description: Report a defect in the contracts, tests, scripts, or tooling.
+title: "bug: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report. Before you
+        start: if this could involve loss of funds or a security issue, **do
+        not** post it here — report privately via the
+        [security advisory](https://github.com/aliibrahim0xali-ibrahim/perishable-bonds/security/advisories/new)
+        or the contacts in SECURITY.md.
+  - type: markdown
+    attributes:
+      value: "After filling this in, see [CONTRIBUTING.md](../../../CONTRIBUTING.md) — a fix is 99% accepted faster when it ships with a regression test that fails on `main`."
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which component is affected?
+      options:
+        - PerishableBond.sol
+        - PerishableBondFactory.sol
+        - IssuerReputationRegistry.sol
+        - script / deployment
+        - tests / invariant suite
+        - CI / tooling / docs
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you expect to happen, and what actually happened?
+      placeholder: "e.g. claimPayout() reverts when ..."
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Minimal repro — prefer a failing forge test or fuzz input.
+      placeholder: |
+        1. Configure a bond with ...
+        2. Call ...
+        3. Observe ...
+
+        ```solidity
+        // failing test or repro snippet
+        ```
+      render: bash
+  - type: input
+    id: version
+    attributes:
+      label: Commit / version
+      description: The commit hash or tag you were testing.
+      placeholder: "e.g. main@9b31f77"
+  - type: textarea
+    id: proposed-fix
+    attributes:
+      label: Proposed fix (optional)
+      description: If you have already identified the cause, describe it and how you'd test it.
+      render: bash

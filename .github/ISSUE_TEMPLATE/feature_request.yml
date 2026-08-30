@@ -1,0 +1,45 @@
+name: Feature request
+description: Suggest an idea for the protocol, tests, tooling, or docs.
+title: "feat: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting! Open-source ideas for a money-handling
+        protocol get the most traction when they are scoped, explain their
+        design tradeoffs, and come with a sketch of how they'd be tested.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem is this solving?
+      description: What works poorly today, for whom?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the feature/change at a design level (not just "add X").
+      placeholder: |
+        - Which contract / file is affected?
+        - What state or functions change?
+        - What are the security / invariants implications?
+    validations:
+      required: true
+  - type: textarea
+    id: testing
+    attributes:
+      label: How should this be tested?
+      description: Unit tests, fuzz cases, and/or a new invariant property.
+      placeholder: "e.g. an invariant that ... never reverts / never exceeds ..."
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - Nice to have
+        - Important
+        - Critical to the protocol's thesis
+    validations:
+      required: true
