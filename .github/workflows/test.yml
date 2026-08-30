@@ -20,7 +20,10 @@ jobs:
         run: forge --version
 
       - name: Install dependencies
-        run: forge install
+        # Pinned explicitly: a bare `forge install` only reconciles deps
+        # already recorded (submodules/foundry.lock) and would install
+        # nothing against a fresh checkout with lib/ gitignored.
+        run: forge install foundry-rs/forge-std@v1.9.6 OpenZeppelin/openzeppelin-contracts@v5.3.0
 
       - name: Check formatting
         run: forge fmt --check

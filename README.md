@@ -105,7 +105,7 @@ Requires [Foundry](https://getfoundry.sh).
 ```bash
 git clone https://github.com/OWNER/perishable-bonds.git
 cd perishable-bonds
-forge install          # fetches openzeppelin-contracts + forge-std
+forge install foundry-rs/forge-std@v1.9.6 OpenZeppelin/openzeppelin-contracts@v5.3.0
 forge build
 forge test
 ```
