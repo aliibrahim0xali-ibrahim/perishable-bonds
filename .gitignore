@@ -1,0 +1,22 @@
+# Foundry
+cache/
+out/
+broadcast/
+
+# Dependencies (fetched via `forge install`, not committed)
+lib/
+
+# Env / secrets
+.env
+.env.*
+!*.env.example
+
+# Editor / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Coverage
+lcov.info
+coverage/
